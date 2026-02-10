@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   TextField,
@@ -10,118 +10,107 @@ import {
   Alert,
   CircularProgress,
   Typography,
-  Paper
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions
 } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
-import { requestAPI } from '../services/api';
+import { requestsAPI } from '../services/api';
 
-const RequestForm = ({ requestId, onSuccess, onCancel, userRole }) => {
+const RequestForm = ({ open, onClose, onSuccess, user }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [agents, setAgents] = useState(['Agent 1', 'Agent 2', 'Agent 3']); // Mock agents
-  
+
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
       title: '',
       description: '',
-      priority: 'Medium',
-      status: 'Open',
-      assignedAgent: ''
+      priority: 'Medium'
     }
   });
-
-  useEffect(() => {
-    if (requestId) {
-      fetchRequest();
-    }
-  }, [requestId]);
-
-  const fetchRequest = async () => {
-    try {
-      setLoading(true);
-      const response = await requestAPI.getById(requestId);
-      reset(response.data);
-    } catch (err) {
-      setError(err.response?.data?.error || 'Failed to fetch request');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const onSubmit = async (data) => {
     try {
       setLoading(true);
       setError(null);
       
-      if (requestId) {
-        await requestAPI.update(requestId, data);
-      } else {
-        await requestAPI.create(data);
-      }
-      
+      await requestsAPI.create(data);
+      reset();
       onSuccess();
+      onClose();
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to save request');
+      setError(err.response?.data?.error || 'Failed to create request');
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading && requestId) {
-    return (
-      <Box display="flex" justifyContent="center" alignItems="center" minHeight="200px">
-        <CircularProgress />
-      </Box>
-    );
-  }
+  const handleCancel = () => {
+    reset();
+    onClose();
+  };
 
   return (
-    <Paper sx={{ p: 3 }}>
-      <Typography variant="h6" gutterBottom>
-        {requestId ? 'Edit Request' : 'Create New Request'}
-      </Typography>
+    <Dialog open={open} onClose={handleCancel} maxWidth="sm" fullWidth>
+      <DialogTitle>
+        <Typography variant="h6">
+          Create New Work Request
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Employee ID: {user?.employeeId || 'N/A'}
+        </Typography>
+      </DialogTitle>
       
-      {error && (
-        <Alert severity="error" sx={{ mb: 2 }}>
-          {error}
-        </Alert>
-      )}
+      <DialogContent>
+        {error && (
+          <Alert severity="error" sx={{ mb: 2 }}>
+            {error}
+          </Alert>
+        )}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Box display="flex" flexDirection="column" gap={2}>
-          <Controller
-            name="title"
-            control={control}
-            rules={{ required: 'Title is required', maxLength: 200 }}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="Title"
-                error={!!errors.title}
-                helperText={errors.title?.message}
-                fullWidth
-              />
-            )}
-          />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Box display="flex" flexDirection="column" gap={2} mt={1}>
+            <Controller
+              name="title"
+              control={control}
+              rules={{ 
+                required: 'Title is required',
+                minLength: { value: 5, message: 'Title must be at least 5 characters' },
+                maxLength: { value: 200, message: 'Title cannot exceed 200 characters' }
+              }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Request Title"
+                  error={!!errors.title}
+                  helperText={errors.title?.message}
+                  fullWidth
+                />
+              )}
+            />
 
-          <Controller
-            name="description"
-            control={control}
-            rules={{ required: 'Description is required' }}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="Description"
-                multiline
-                rows={4}
-                error={!!errors.description}
-                helperText={errors.description?.message}
-                fullWidth
-              />
-            )}
-          />
+            <Controller
+              name="description"
+              control={control}
+              rules={{ 
+                required: 'Description is required',
+                minLength: { value: 10, message: 'Description must be at least 10 characters' }
+              }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Description"
+                  multiline
+                  rows={4}
+                  error={!!errors.description}
+                  helperText={errors.description?.message}
+                  fullWidth
+                  placeholder="Describe your work request in detail..."
+                />
+              )}
+            />
 
-          <Box display="flex" gap={2}>
             <Controller
               name="priority"
               control={control}
@@ -137,55 +126,22 @@ const RequestForm = ({ requestId, onSuccess, onCancel, userRole }) => {
               )}
             />
 
-            <Controller
-              name="status"
-              control={control}
-              render={({ field }) => (
-                <FormControl fullWidth>
-                  <InputLabel>Status</InputLabel>
-                  <Select {...field} label="Status">
-                    <MenuItem value="Open">Open</MenuItem>
-                    <MenuItem value="In Progress">In Progress</MenuItem>
-                    <MenuItem value="Done">Done</MenuItem>
-                  </Select>
-                </FormControl>
-              )}
-            />
+            <Box display="flex" gap={2} justifyContent="flex-end" mt={2}>
+              <Button onClick={handleCancel} disabled={loading}>
+                Cancel
+              </Button>
+              <Button 
+                type="submit" 
+                variant="contained" 
+                disabled={loading}
+              >
+                {loading ? <CircularProgress size={24} /> : 'Submit Request'}
+              </Button>
+            </Box>
           </Box>
-
-          <Controller
-            name="assignedAgent"
-            control={control}
-            render={({ field }) => (
-              <FormControl fullWidth>
-                <InputLabel>Assign Agent</InputLabel>
-                <Select {...field} label="Assign Agent">
-                  <MenuItem value="">Unassigned</MenuItem>
-                  {agents.map((agent) => (
-                    <MenuItem key={agent} value={agent}>
-                      {agent}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            )}
-          />
-
-          <Box display="flex" gap={2} justifyContent="flex-end" mt={2}>
-            <Button onClick={onCancel} disabled={loading}>
-              Cancel
-            </Button>
-            <Button 
-              type="submit" 
-              variant="contained" 
-              disabled={loading}
-            >
-              {loading ? <CircularProgress size={24} /> : 'Save'}
-            </Button>
-          </Box>
-        </Box>
-      </form>
-    </Paper>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 };
 
