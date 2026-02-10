@@ -1,0 +1,127 @@
+[
+  {
+    "id": "e37ddd2d-059d-400d-afa3-e7458314e60b",
+    "title": "Server Maintenance Required",
+    "description": "The main production server needs urgent maintenance. Several performance issues have been reported.",
+    "priority": "High",
+    "status": "Open",
+    "createdBy": "1",
+    "assignedAgent": "2",
+    "tags": [
+      "server",
+      "maintenance",
+      "urgent"
+    ],
+    "comments": [
+      {
+        "id": "fe73f9be-294a-4047-9e71-e9222233b6ad",
+        "text": "This needs to be addressed immediately.",
+        "author": "System Administrator",
+        "authorId": "1",
+        "timestamp": "2026-02-05T08:54:44.793Z"
+      }
+    ],
+    "createdDate": "2026-02-05T08:54:44.793Z",
+    "updatedDate": "2026-02-05T08:54:44.793Z"
+  },
+  {
+    "id": "2d128162-8e9a-4e2b-b03e-537c0539dfe2",
+    "title": "Database Backup Schedule",
+    "description": "Need to set up automated daily backups for the customer database.",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdBy": "1",
+    "assignedAgent": null,
+    "tags": [
+      "database",
+      "backup",
+      "automation"
+    ],
+    "comments": [],
+    "createdDate": "2026-02-05T20:54:44.793Z",
+    "updatedDate": "2026-02-06T09:52:56.234Z",
+    "updatedAt": "2026-02-06T09:52:56.234Z"
+  },
+  {
+    "id": "214e390c-eda1-49bf-af4b-56c52a166831",
+    "title": "UI Bug Fix - Dashboard",
+    "description": "Users reporting that the dashboard statistics are not updating in real-time.",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdBy": "2",
+    "assignedAgent": "3",
+    "tags": [
+      "ui",
+      "bug",
+      "dashboard"
+    ],
+    "comments": [
+      {
+        "id": "55440ecd-4eb9-4e69-af23-d049c60b9ee7",
+        "text": "Investigating the issue now.",
+        "author": "Jane Doe",
+        "authorId": "3",
+        "timestamp": "2026-02-06T02:54:44.793Z"
+      }
+    ],
+    "createdDate": "2026-02-06T06:54:44.793Z",
+    "updatedDate": "2026-02-06T07:54:44.793Z"
+  },
+  {
+    "id": "9bc674ce-5aec-4bbb-9de2-e9ed890cc27f",
+    "title": "New Feature Request - Reports Export",
+    "description": "Clients requesting ability to export reports in PDF and Excel formats.",
+    "priority": "Low",
+    "status": "Done",
+    "createdBy": "3",
+    "assignedAgent": "4",
+    "tags": [
+      "feature",
+      "reports",
+      "export"
+    ],
+    "comments": [
+      {
+        "id": "bd388848-e0eb-4481-b9be-d8a47a22c2e6",
+        "text": "Feature implemented successfully.",
+        "author": "Mike Johnson",
+        "authorId": "4",
+        "timestamp": "2026-02-06T08:24:44.793Z"
+      }
+    ],
+    "createdDate": "2026-01-30T08:54:44.793Z",
+    "updatedDate": "2026-02-06T08:24:44.793Z"
+  },
+  {
+    "title": "Laptop is lagging",
+    "description": "It keeps loading over again with the same error.",
+    "priority": "High",
+    "createdBy": "1",
+    "status": "Pending",
+    "comments": [],
+    "createdAt": "2026-02-06T09:49:13.383Z",
+    "updatedAt": "2026-02-06T09:49:13.383Z"
+  },
+  {
+    "title": "Fix Desktop JHB-008 ",
+    "description": "Network connection problem",
+    "priority": "High",
+    "assignedAgent": "",
+    "createdBy": "1",
+    "status": "Pending",
+    "comments": [],
+    "createdAt": "2026-02-06T10:16:59.081Z",
+    "updatedAt": "2026-02-06T10:16:59.081Z"
+  },
+  {
+    "title": "dghbdfggd",
+    "description": "adhfbsgfgsgbf",
+    "priority": "High",
+    "assignedAgent": "",
+    "createdBy": "1",
+    "status": "Pending",
+    "comments": [],
+    "createdAt": "2026-02-06T10:18:44.655Z",
+    "updatedAt": "2026-02-06T10:18:44.655Z"
+  }
+]

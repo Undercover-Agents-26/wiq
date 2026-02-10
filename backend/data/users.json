@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fe4336bc-c45d-4cf2-96bb-a6cc876a4ee3",
+    "username": "admin",
+    "password": "$2a$10$1ltmO2e7FLb46vd9jNkMa.MPJtKnbruYFEaInP41fNuxw9EgTTnAK",
+    "name": "System Administrator",
+    "role": "admin",
+    "employeeId": "ADM-001",
+    "email": "admin@wiq.com",
+    "isActive": true
+  },
+  {
+    "id": "0f817363-436a-4d10-a321-acd862df23c7",
+    "username": "agent1",
+    "password": "$2a$10$bUjs1V3E3Q0R6ORBrJCnUuQjSVJL/tLx7vHIBJmFNGrVPMNorCw6K",
+    "name": "John Smith",
+    "role": "agent",
+    "employeeId": "AGT-001",
+    "email": "john.smith@wiq.com",
+    "isActive": true
+  },
+  {
+    "id": "16df390d-e34a-4902-8b1e-581828ff9146",
+    "username": "agent2",
+    "password": "$2a$10$.oGEgqtb8y9iTaIixlShuuVDMW9ZReKunkoBSX0xrQLdRz/3Nz7ai",
+    "name": "Jane Doe",
+    "role": "agent",
+    "employeeId": "AGT-002",
+    "email": "jane.doe@wiq.com",
+    "isActive": true
+  },
+  {
+    "id": "0d672f58-1093-43cc-aaa8-d287184adf9f",
+    "username": "agent3",
+    "password": "$2a$10$.OfQ0WMOop.qcslrr9JsiOCruPi4v9m2Mr3ebI6nkeSIAzeuz44jq",
+    "name": "Mike Johnson",
+    "role": "agent",
+    "employeeId": "AGT-003",
+    "email": "mike.johnson@wiq.com",
+    "isActive": true
+  }
+]
