@@ -25,7 +25,7 @@ A comprehensive work request management system designed to streamline the proces
 - [Contributing](#contributing)
 - [License](#license)
 
-## 🌟 Overview
+## Overview
 
 WIQ (Work Intelligence Queue) provides role-based access control, real-time status tracking, and efficient assignment workflows to help organizations manage their work requests effectively. The system features separate dashboards for administrators and agents, comprehensive filtering and search capabilities, and a commenting system for collaboration.
 
