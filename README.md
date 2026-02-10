@@ -7,7 +7,7 @@
 
 A comprehensive work request management system designed to streamline the process of creating, tracking, and managing work requests within an organization.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -29,7 +29,7 @@ A comprehensive work request management system designed to streamline the proces
 
 WIQ (Work Intelligence Queue) provides role-based access control, real-time status tracking, and efficient assignment workflows to help organizations manage their work requests effectively. The system features separate dashboards for administrators and agents, comprehensive filtering and search capabilities, and a commenting system for collaboration.
 
-## ✨ Features
+## Features
 
 - **Role-Based Access Control**
   - Administrator role with full system access
@@ -62,7 +62,7 @@ WIQ (Work Intelligence Queue) provides role-based access control, real-time stat
   - Desktop-optimized layouts
   - Modern Material-UI components
 
-## 🛠 Technology Stack
+## Technology Stack
 
 ### Frontend
 - **React 18** - UI framework
@@ -77,7 +77,7 @@ WIQ (Work Intelligence Queue) provides role-based access control, real-time stat
 - Ready for backend integration
 - RESTful API structure
 
-## 📦 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -85,7 +85,7 @@ Before you begin, ensure you have the following installed:
 - **npm** 6.0 or higher
 - Modern web browser (Chrome, Firefox, Edge, or Safari)
 
-## 🚀 Installation
+##  Installation
 
 1. **Clone the repository**
    ```bash
@@ -137,7 +137,7 @@ Before you begin, ensure you have the following installed:
 4. **Add comments** for collaboration
 5. **Track workload** through personal statistics
 
-## 🎭 User Roles
+## User Roles
 
 ### Administrator
 Full system access including:
@@ -157,7 +157,7 @@ Limited access to assigned work:
 - Add comments
 - View personal statistics
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 wiq-system/
@@ -194,7 +194,7 @@ wiq-system/
 └── README.md              # This file
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -213,7 +213,7 @@ Edit `src/services/api.js` to configure the API base URL:
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 ```
 
-## 💻 Development
+##  Development
 
 ### Available Scripts
 
@@ -240,7 +240,7 @@ The project follows these conventions:
 - Material-UI styling system
 - Async/await for asynchronous operations
 
-## 🏗 Production Build
+##  Production Build
 
 1. **Create production build**
    ```bash
@@ -275,7 +275,7 @@ location / {
 }
 ```
 
-## 📡 API Documentation
+##  API Documentation
 
 ### Authentication
 
@@ -387,7 +387,7 @@ Get all agents.
 }
 ```
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -424,7 +424,7 @@ Get all agents.
 - Monitor browser console for warnings
 - Close unused browser tabs
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please follow these guidelines:
 
@@ -441,17 +441,17 @@ Contributions are welcome! Please follow these guidelines:
 - Update documentation as needed
 - Test thoroughly before submitting
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Material-UI for the component library
 - React team for the framework
 - All contributors and testers
 
-## 📞 Support
+##  Support
 
 For questions or issues:
 - Open an issue on GitHub
